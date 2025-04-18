@@ -3,8 +3,8 @@ const taskService = require('../services/task.service');
 const createTask = async (req, res) => {
   try {
     const task = await taskService.createTask(req);
-    res.status(201).json(task);
-  } catch (err) {
+    res.status(201).json({ message: "Task created successfully"});
+    } catch (err) {
     res.status(400).json({ message: err.message });
   }
 };

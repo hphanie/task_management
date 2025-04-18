@@ -17,7 +17,7 @@ app.use(logMiddleware);
 app.use(errorMiddleware);
 
 app.use('/api/auth',        require('./api/routes/auth.route'));
-app.use('/api/tasks',       require('./api/routes/task.route'));
+app.use('/api/task',       require('./api/routes/task.route'));
 
 app.get('/', (req, res) => {
   res.send("Bienvenue sur l’API TASK_MANAGEMENT !");

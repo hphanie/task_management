@@ -5,7 +5,7 @@ const { hashPassword } = require('../utils/password.helper');
 const userSchema = new Schema({
   fullname: { 
     type: String, 
-    required: true 
+    required: false 
 },
   username: { 
     type: String, 
@@ -25,7 +25,7 @@ const userSchema = new Schema({
 },
     phone:    { 
     type: String, 
-    required: true 
+    required: false 
 },
 
   friends:  [{ 
@@ -35,7 +35,9 @@ const userSchema = new Schema({
 }, { timestamps: true });
 
 userSchema.pre('save', async function(next) {
-  if (!this.isModified('password')) return next();
+  if (!this.isModified('password')){
+    return next();
+  } 
   this.password = await hashPassword(this.password);
   next();
 });

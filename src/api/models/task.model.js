@@ -12,8 +12,8 @@ const taskSchema = new Schema({
 },
   status:      { 
     type: String, 
-    enum: ['todo','in_progress','done'], 
-    default: 'todo' 
+    enum: ['pending', 'in-progress', 'completed'], 
+    default: 'pending' 
 },
   owner:       { 
     type: Schema.Types.ObjectId, 

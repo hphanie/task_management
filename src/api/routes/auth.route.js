@@ -13,8 +13,9 @@ const {
   
   const validate = require("../middlewares/validate");
   
-  router.post("/register", validate(registerSchema), (req, res) => register(req, res));
-  router.post("/login", validate(loginSchema), (req, res) => login(req, res));
+  router.post("/register", validate(registerSchema), register);
+
+  router.post("/login", validate(loginSchema), login);
   
   module.exports = router;
   
